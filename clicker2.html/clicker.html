@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Click the image!</title>
+</head>
+
+<body>
+  <button id="button">upgrade</button>
+  <button id="autoclicker">autoclicker</button>
+  <img id="10801090" src="https://i.ytimg.com/vi/25W7SxpVr8I/maxresdefault.jpg">
+  <p id="score">score=0</p>
+</body>
+
+</html>
+<script>
+  var score = 0
+  var powerup = 1
+  document.getElementById("10801090").addEventListener("click", increaseScore)
+  document.getElementById("button").addEventListener("click", upgrade)
+  document.getElementById("autoclicker").addEventListener("click", autoclicker)
+  function increaseScore() {
+    score = score + powerup
+    document.getElementById("score").innerText = score
+    console.log(score)
+  }
+  function upgrade() {
+    if (score > 5){
+      score=score - 5
+      powerup = 2
+    }
+  }
+  function autoclicker(){
+    if(score>=200){
+      score=score-200
+    setInterval(increaseScore, 100);
+    }
+  }
+</script>
